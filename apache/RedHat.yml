@@ -28,4 +28,8 @@
     src: /tmp/hightech.zip
     dest: /tmp/
     remote_src: yes
-    
+
+- name: Move Template files to /var/www/html
+  shell: "mv /tmp/hightech-html/* /var/www/html/"
+  args:
+    creates: /var/www/html/index.html    

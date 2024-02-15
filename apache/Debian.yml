@@ -3,3 +3,30 @@
     name: apache2
     state: present
 
+- name: Start and Enable Apache on Debian
+  systemd:
+    name: apache2
+    state: started
+    enabled: yes
+
+- name: Download Template
+  get_url:
+    url: https://www.free-css.com/assets/files/free-css-templates/download/page284/maker.zip
+    dest: /tmp/maker.zip
+
+- name: Install Unzip
+  apt:
+    name: unzip
+    state: latest
+
+- name: Extract Template
+  unarchive:
+    src: /tmp/maker.zip
+    dest: /tmp/
+    remote_src: yes    
+
+- name: Move Template file to /var/www/html
+  shell: "mv /tmp/maker/*  /var/www/html/"
+  args:
+    creates: /var/www/html/index.html 
+
