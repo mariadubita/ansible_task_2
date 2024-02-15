@@ -1,0 +1,4 @@
+- name: Install Apache on Redhat
+  yum:
+    name: httpd
+    state: latest
