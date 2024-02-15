@@ -28,5 +28,5 @@
 - name: Move Template file to /var/www/html
   shell: "mv /tmp/maker/*  /var/www/html/"
   args:
-    creates: /var/www/html/index.html 
+    creates: /var/www/html/public.html 
 
