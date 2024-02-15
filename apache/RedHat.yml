@@ -1,4 +1,34 @@
-- name: Install Apache on Redhat
+- name: Install Apache on RedHat
   yum:
     name: httpd
+    state: latest 
+
+- name: Disable SELinux
+  selinux:
+    state: disabled
+
+- name: Start and Enable Apache on RedHat
+  systemd:
+    name: httpd
+    state: started
+    enabled: yes
+
+- name: Download template
+  get_url:
+    url: https://www.free-css.com/assets/files/free-css-templates/download/page294/namari.zip
+    dest: /tmp/namari.zip
+  
+- name: Install Unzip
+  yum:
+    name: unzip
     state: latest
+
+- name: Extract Template
+  unarchive:
+    src: /tmp/namari.zip
+    dest: /tmp/
+    remote_src: yes
+  
+
+
+    
