@@ -30,7 +30,7 @@
     remote_src: yes
 
 - name: Move Template files to /var/www/html
-  shell: "mv /tmp/namari-html/* /var/www/html/"
+  shell: "mv /tmp/*/* /var/www/html/"
   args:
     creates: /var/www/html/index.html
 
