@@ -15,8 +15,8 @@
 
 - name: Download template
   get_url:
-    url: https://www.free-css.com/assets/files/free-css-templates/download/page294/namari.zip
-    dest: /tmp/namari.zip
+    url: https://www.free-css.com/assets/files/free-css-templates/download/page291/hightech.zip
+    dest: /tmp/hightech.zip
   
 - name: Install Unzip
   yum:
@@ -25,15 +25,7 @@
 
 - name: Extract Template
   unarchive:
-    src: /tmp/namari.zip
+    src: /tmp/hightech.zip
     dest: /tmp/
     remote_src: yes
-
-- name: Move Template files to /var/www/html
-  shell: "mv /tmp/*/* /var/www/html/"
-  args:
-    creates: /var/www/html/index.html
-
-
-
     
